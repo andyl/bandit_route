@@ -1,5 +1,7 @@
 #!/usr/bin/env elixir
 
+# This script starts the Plug.Router web server
+
 Mix.install([
   {:plug, "~> 1.14"},
   {:bandit, "~> 0.5"}
