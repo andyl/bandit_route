@@ -1,7 +1,5 @@
 #!/usr/bin/env elixir
 
-# This script starts the Plug.Router web server
-
 Mix.install([
   {:plug, "~> 1.14"},
   {:bandit, "~> 0.5"}
@@ -15,8 +13,6 @@ defmodule Router do
 
   def run do
     Bandit.start_link(plug: Router)
-    Process.sleep(100)
-    IO.puts("Ctrl-C to exit")
     Process.sleep(:infinity)
   end
 
