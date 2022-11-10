@@ -1,13 +1,12 @@
 #!/usr/bin/env elixir
 
 Mix.install([
-  {:plug, "~> 1.14"},
   {:bandit, "~> 0.5"}
 ])
 
 defmodule Router do
-
   use Plug.Router
+  plug Plug.Logger
   plug :match
   plug :dispatch
 
@@ -17,16 +16,12 @@ defmodule Router do
   end
 
   get "/" do
-    conn
-    |> send_resp(200, "HELLO")
-    |> halt
+    send_resp(conn, 200, "HELLO")
   end
 
   match _ do
-    conn
-    |> send_resp(404, "Not found")
+    send_resp(conn, 404, "Not found")
   end
-
 end
 
 Router.run()
